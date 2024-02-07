@@ -85,7 +85,7 @@ def check_for_style(filename, filepath):
     fileContents = filePointer.read()
 
     # collection of individual lines in the file as defined by brackets <>
-    # TODO: Explain this Regular Expression
+    # This regular expression parses the file into lines based on opening and closing brackets < ... >
     lines = re.findall("<text[a-zA-Z0-9 \"=:)(><\/.]+|<[^>]*>|..*|[a-z]+}", fileContents)
 
     # check all the lines for 'style'
@@ -127,11 +127,8 @@ def replace_style_information(lines):
 # the current line in the file. Ex. <path d=" M 0,-1.5 L 0,1.5" class="sl f0 sCHBLK" style="stroke-width: 0.64;"/>
 def parse_style(line):
     # This Regular Expression only handles style components with numeric values
-    # TODO: Update this to support 'any' value for a style component
     style_lines = re.findall("[a-zA-Z-]+:\s*[0-9.]+;*", line)
 
-    # TODO: using style_lines[0] is an error. Any style component with more than 1 style attribute will be mis-translated
-    # TODO: This should be 2 empty collections, then append to the collections in a for loop
     style_type_collection = re.findall("[a-zA-Z-]+:\s*", style_lines[0])
     value_collection = re.findall("[0-9.]+", style_lines[0])
 
