@@ -5,16 +5,6 @@ Contact: cody.j.mcbride@gmail.com
 Description: Translates 'style' attribute from SVG 1.1 compliant to SVG tiny compliant (see notes)
 Version: 0.1
 Date: 02/07/2024
-Notes:
-    Requires Python 3 (I used Python 3.9)
-    Invoking the python script (command line)
-        Navigate to the directory of this file
-        Enter the command: python main.py
-    SVG 1.1 supports the style attribute. An example of SVG 1.1 compliant styling includes:
-        <.... style="stroke-width: 0.32;" ..../>
-    This example is not Tiny SVG compliant. Rather, the equivalent Tiny SVG compliant styling would be:
-        <.... stroke-width="0.32" ..../>
-    This tool is used to convert SVG 1.1 compliant styling to SVG tiny compliant styling
 """
 
 # import system libraries
