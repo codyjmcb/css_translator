@@ -4,7 +4,7 @@ Name: Cody J. McBride
 Contact: cody.j.mcbride@gmail.com
 Description: Translates 'style' attribute from SVG 1.1 compliant to SVG tiny compliant (see notes)
 Version: 0.1
-Date: 01/05/2024
+Date: 02/07/2024
 Notes:
     Requires Python 3 (I used Python 3.9)
     Invoking the python script (command line)
