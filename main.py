@@ -2,7 +2,7 @@
 File: main.py
 Name: Cody J. McBride
 Contact: cody.j.mcbride@gmail.com
-Description: Translates 'style' attribute from SVG 1.1 compliant to SVG tiny compliant (see notes)
+Description: Translates 'style' attribute from SVG 1.1 compliant to SVG tiny compliant version
 Version: 0.1
 Date: 02/07/2024
 """
