@@ -119,8 +119,13 @@ def parse_style(line):
     # This Regular Expression only handles style components with numeric values
     style_lines = re.findall("[a-zA-Z-]+:\s*[0-9.]+;*", line)
 
-    style_type_collection = re.findall("[a-zA-Z-]+:\s*", style_lines[0])
-    value_collection = re.findall("[0-9.]+", style_lines[0])
+    # initialize empty lists
+    style_type_collection = []
+    value_collection = []
+
+    for line in style_lines:
+        style_type_collection += re.findall("[a-zA-Z-]+:\s*", line)
+        value_collection += re.findall("[0-9.]+", line)
 
     string_return = ""
 
@@ -128,7 +133,7 @@ def parse_style(line):
     for style, value in zip(style_type_collection, value_collection):
         style = style.replace(":", "=\"")
         style = style.replace(" ", "")
-        string_return = string_return + style + value + "\""
+        string_return = string_return + style + value + "\" "
 
     return string_return
 
