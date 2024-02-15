@@ -54,7 +54,6 @@ def button_listener(source_folder, current_file):
                         current_file.config(state='disabled')
                         current_file.master.update()
                         check_for_style(filename, directory)
-                        time.sleep(2)
 
     nam = write_history_file(directory)
     tkinter.messagebox.showinfo("Success!",
@@ -82,7 +81,7 @@ def check_for_style(filename, filepath):
     for line in lines:
         if line.find("style") >= 0:
 
-            # ignore style in the header ??
+            # ignore style in the header
             if line.find("xml") >= 0:
                 pass
 
@@ -95,6 +94,14 @@ def check_for_style(filename, filepath):
                 write_new_file(lines, new_file)
                 if filename not in files_modified:
                     files_modified.append(filename)
+        else:
+            lines = replace_style_information(lines)
+            if not os.path.exists(filepath + "/css_removed/"):
+                os.makedirs(filepath + "/css_removed/")
+            new_file = os.path.join(filepath + "/css_removed/", filename)
+            write_new_file(lines, new_file)
+            if filename not in files_modified:
+                files_modified.append(filename)
 
     pass
 
@@ -148,7 +155,7 @@ def write_new_file(lines, filepath):
 
 def write_history_file(directory):
     history = "list_of_modified_files.txt"
-    mod_file = os.path.join(directory, history)
+    mod_file = os.path.join(directory + "/css_removed/", history)
 
     # append to the history
     file_writer = open(mod_file, 'a')
